@@ -275,12 +275,20 @@ int main(int argc, char* argv[])
 
   if (NVM_EnterProgmode() == false)
   {
-    printf("Can't enter programming mode, exiting\n");
-    return -1;
-  }
-  //print("Device is locked. Performing unlock with chip erase.")
-  //nvm.unlock_device()
+    if (parameters.erase == true)
+    {
+      printf("Can't enter programming mode and erase is set, unlocking device\n");
+      NVM_UnlockDevice();
 
+      // Device is erased, no need to do it again
+      parameters.erase = false;
+    }
+    else
+    {
+      printf("Can't enter programming mode, exiting\n");
+      return -1;
+    }
+  }
 
   printf("Working with device: %s\n", DEVICES_GetNameByNumber(parameters.device));
   /**< process input parameters */
