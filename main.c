@@ -20,8 +20,8 @@
 #define COMPORT_LEN     (32)
 #define FUSES_LEN       (128)
 
-#define SW_VER_NUMBER   "0.2"
-#define SW_VER_DATE     "20.10.2018"
+#define SW_VER_NUMBER   "0.2.1"
+#define SW_VER_DATE     "2020-01-22"
 
 typedef struct
 {
@@ -89,8 +89,8 @@ int main(int argc, char* argv[])
   //int ccc;
 
   printf("################################################################\n");
-  printf("#      Simple command line interface for UPDI programming      #\n");
-  printf("#                Ver. %3s (%00000010s) by A.K.                 #\n", SW_VER_NUMBER, SW_VER_DATE);
+  printf("Simple command line interface for UPDI programming\n");
+  printf("Ver. %5s (%00000010s) by A.K.\n", SW_VER_NUMBER, SW_VER_DATE);
   printf("################################################################\n\n");
 
 //  COM_Open("/dev/ttyUSB0", 9600, false, false);
